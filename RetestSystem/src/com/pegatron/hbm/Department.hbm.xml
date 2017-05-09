@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-2-21 16:50:51 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.pegatron.pojo">
+    <class name="Department" table="RETESTSYSTEM_DEPARTMENT_TB">
+        <id name="departmentId" type="java.lang.String">
+            <column name="DEPARTMENTID" />
+            <generator class="assigned" />
+        </id>
+        <property name="shortName" type="java.lang.String">
+            <column name="SHORTNAME" />
+        </property>
+        <property name="fullName" type="java.lang.String">
+            <column name="FULLNAME" />
+        </property>
+        <many-to-one name="parent" class="Department" fetch="join" cascade="all">
+            <column name="PARENT_ID" />
+        </many-to-one>
+        <list name="children" inverse="true" lazy="true" cascade="all">
+            <key>
+                <column name="PARENT_ID" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="Department" />
+        </list>
+        <property name="depth" type="java.lang.Integer">
+            <column name="DEPTH" />
+        </property>
+        <one-to-one name="user" class="User" property-ref="department" cascade="all"></one-to-one>
+    </class>
+</hibernate-mapping>

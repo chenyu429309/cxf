@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-2-21 16:50:51 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.pegatron.pojo">
+    <class name="RateData" table="RETESTSYSTEM_RATEDATA_TB">
+        <id name="id" type="java.lang.String">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="project" type="java.lang.String">
+            <column name="PROJECT" />
+        </property>
+        <property name="route" type="java.lang.String">
+            <column name="ROUTE" />
+        </property>
+        <property name="line" type="java.lang.String">
+            <column name="LINE" />
+        </property>
+        <property name="station" type="java.lang.String">
+            <column name="STATION" />
+        </property>
+        <property name="day" type="java.util.Date">
+            <column name="DAY" />
+        </property>
+        <property name="shift" type="java.lang.String">
+            <column name="SHIFT" />
+        </property>
+        <property name="s_day" type="java.util.Date">
+            <column name="S_DAY" />
+        </property>
+        <property name="e_day" type="java.util.Date">
+            <column name="E_DAY" />
+        </property>
+        <property name="input" type="java.lang.Double">
+            <column name="INPUT" />
+        </property>
+        <property name="retest" type="java.lang.Double">
+            <column name="RETEST" />
+        </property>
+        <property name="fail" type="java.lang.Double">
+            <column name="FAIL" />
+        </property>
+    </class>
+</hibernate-mapping>

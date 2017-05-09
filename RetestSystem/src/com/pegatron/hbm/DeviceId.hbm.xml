@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-3-1 18:12:14 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.pegatron.pojo">
+    <class name="DeviceId" table="RETESTSYSTEM_DEVICEID_TB">
+        <id name="deviceId" type="java.lang.String">
+            <column name="DEVICEID" />
+            <generator class="assigned" />
+        </id>
+        <property name="smallStation" type="java.lang.String">
+            <column name="SMALLSTATION" />
+        </property>
+        <property name="project" type="java.lang.String">
+            <column name="PROJECT" />
+        </property>
+    </class>
+</hibernate-mapping>

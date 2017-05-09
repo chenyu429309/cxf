@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-2-21 16:50:51 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.pegatron.pojo">
+    <class name="Permission" table="RETESTSYSTEM_PERMISSION_TB">
+        <id name="p_id" type="java.lang.String">
+            <column name="P_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="urlPatten" type="java.lang.String">
+            <column name="URLPATTEN" />
+        </property>
+        <property name="descripation" type="java.lang.String">
+            <column name="DESCRIPATION" />
+        </property>
+        <many-to-one name="parent" class="Permission" fetch="join" cascade="all" lazy="false">
+            <column name="PARENT_ID" />
+        </many-to-one>
+        <list name="children" inverse="true" lazy="false" cascade="all">
+            <key>
+                <column name="PARENT_ID" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="Permission" />
+        </list>
+        <list name="roles" table="RETESTSYSTEM_PERMISSION_ROLE_TB" lazy="false" cascade="all">
+            <key>
+                <column name="P_ID" />
+            </key>
+            <list-index></list-index>
+            <many-to-many class="Role" column="R_ID"/>
+        </list>
+        <property name="depth" type="java.lang.Integer">
+            <column name="DEPTH" />
+        </property>
+    </class>
+</hibernate-mapping>
